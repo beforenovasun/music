@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-pastel: #BDE0FE;
+            --yellow-pastel: #FFFBCC;
+            --pink-pastel: #FFC8DD;
+            --white: #FFFFFF;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Mali', cursive;
+            overflow: hidden;
+        }
+
+        .section {
+            display: none; /* ซ่อนหน้าอื่นๆ ไว้ก่อน */
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .active {
+            display: flex;
+            z-index: 10;
+        }
+
+        /* --- หน้าที่ 1 --- */
+        #page1 {
+            background: linear-gradient(135deg, var(--blue-pastel), var(--yellow-pastel), var(--white));
+        }
+        .btn-open {
+            padding: 15px 40px;
+            font-size: 24px;
+            background-color: white;
+            border: 2px solid #a2d2ff;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .btn-open:hover { transform: scale(1.1); }
+
+        /* --- หน้าที่ 2 --- */
+        #page2 {
+            background-color: var(--pink-pastel);
+        }
+        .heart-rain {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        .gallery {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            z-index: 5;
+        }
+        .photo-placeholder {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        /* --- หน้าที่ 3 --- */
+        #page3 {
+            background-color: var(--yellow-pastel);
+        }
+        .card {
+            background: white;
+            width: 80%;
+            max-width: 500px;
+            min-height: 300px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* --- หน้าที่ 4 --- */
+        #page4 {
+            background-color: #f8edeb;
+        }
+        .fade-in-text {
+            font-size: 28px;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+            padding: 20px;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        button.next-btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            border-radius: 20px;
+            border: none;
+            background: #ffafcc;
+            color: white;
+            font-family: 'Itim', cursive;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="section active">
+        <h1 style="font-size: 3rem;">Congratulations to music🩷</h1>
+        <button class="btn-open" onclick="nextPage(1, 2); playMusic();">OPEN</button>
+    </div>
+
+    <div id="page2" class="section">
+        <div id="hearts-container"></div>
+        <h2>music&pakkad photos</h2>
+        <div class="gallery">
+            <div class="photo-placeholder"><img src="1.jpg" alt="Photo" style="width:100%"></div>
+            <div class="photo-placeholder"><img src="2.jpg" alt="Photo" style="width:100%"></div>
+            <div class="photo-placeholder"><img src="23.png" alt="Photo" style="width:100%"></div>
+            <div class="photo-placeholder"><img src="24.jpg" alt="Photo" style="width:100%"></div>
+            
+        </div>
+        <button class="next-btn" onclick="nextPage(2, 3)">ถัดไป</button>
+    </div>
+
+    <div id="page3" class="section">
+        <div class="card">
+            <h2 style="color: #333;">To my best friend forever,</h2>
+            <p style="color: #555; line-height: 1.09;">
+                เค้าจะบอกว่าเค้าดีใจมาก ๆ ที่ได้รู้จักมิวสิค เค้าขอบคุณมิวสิคในทุก ๆ เรื่องเลย เค้าอยากจะบอกว่าเค้ารักมิวสิคมาก ๆ เลยนะ มิวสิคเป็นเพื่อนที่เค้าสนิทมากที่สุดเลย เค้าจะบอกว่ามิวสิคร้องเพลงเพราะมาก ๆ อยากฟังมิวสิคร้องเพลงบ่อย ๆ และก็อยากจะบอกว่ามิวสิคเก่งมาก ๆ ในทุก ๆ เรื่องเลย เค้าขอให้มิวสิคไม่ต้องมีเรื่องให้เสียใจเยอะนะขอให้มิวสิคมีความสุขมาก ๆ ยิ้มเยอะเยอะ ถ้าวันไหนมีเรื่องเศร้า เสียใจ เหนื่อย เครียด ก็ทักหาเค้าได้เสมอนะเค้าจะอยู่เคียงข้างมิวสิคแบบนี้ไปเรื่อย ๆ นะมิวสิคยังมีเค้าเสมอเลย ถ้าเค้าเคยทำนิสัยไม่ดีใส่หรือหงุดหงิดใส่มิวสิคเค้าขอโทษนะ เค้าอาจจะพิมพ์ไปเรื่อยหน่อยนะ 555555 แต่อยากบอกกับมิวสิคจริง ๆ เค้าจะบอกว่า 3 ปีมันเร็วมาก ๆ เลยนะ ยังอยากอยู่ด้วยกันกับมิวสิคอยู่เลย เค้าไม่รู้ว่ามิวสิคจะชอบของที่เค้าให้ไหมแต่เค้าให้ด้วยใจเลยนะ เค้าไม่แย่งยำยำช้างน้อยแลวนะ แล้วก็ตัวต่อจริง ๆ ก็ตั้งใจต่อให้มาก ๆ เป็นน้องตัวนำโชคไปแล้วกันนะ แล้วก็ที่เขียนในนี้ให้แทนเขียนในกระดาษเพราะเค้าอยากให้มิวสิคกลับมาดูกลับมาอ่านได้เสมอ เย่ ่ ่ เค้ารักมิวสิคมาก ๆ นะอยากบอกให้รู้ ขอบคุณมิวสิคที่อยู่กับเค้านะ รู้สึกเราสองคนผ่านอะไรมาด้วยกันเยอะมากกก รวมถึงตอนแผ่นดินไหวด้วย แต่ขอไม่เอาอีกแล้วเว่ย นั่นแหละเค้าไม่รู้ว่าต่อจากนี้จะเป็นยังไงแต่ตอนนี้เค้ามีความสุขมาก ๆ เลย ขอให้เราสนิทกันไปเรื่อย ๆ เลยนะ อยู่หาดใหญ่มิวสิคดูแลตัวเองดี ๆ ด้วยนะ เค้าเป็นห่วงมิวสิคเสมอขอให้มิวสิคไม่ป่วยบ่อย มีคนรักเยอะ ๆ แบบนี้ไปเรื่อย ๆ เลยนะ ขอให้มิวสิคได้ใช้ชีวิตที่มิวสิคหวัง มีความสุขในทุกวัน ใช้ชีวิตให้สนุกนะ จะบอกว่าตอนนี้ที่พิมพ์ก็จะร้องไห้อะ เค้าคงคิดถึงมิวสิคมากแน่ ๆ เค้าไม่รู้ว่าเค้าเป็นเพื่อนที่สนิทที่สุดของมิวสิคไหม แต่มิวสิคคือเพื่อนที่สนิทที่สุดของเค้าเลย ถึงเข้ามหาลัยไปเค้าก็ให้มิวสิคเป็นเพื่อนที่สนิทที่สุดในชีวิตตลอดไปเลย เค้าภูมิใจในตัวมิวสิคมาก ๆ นะอยากให้มิวสิคภูมิใจตัวเองเยอะ ๆ และก้อไฟตตเราสองคนห้ามดับเด้ดขาด อันนี้บอกตัวเค้าเองด้วย พิมพ์ไปร้องไห้ไปมากอะตอนนี้ อาจจะไม่ได้มีประโยคมายัง ภันเตอีกและ แต่ก้อนั่นแหละขอพิมพ์ทุกเช้าเหมือนเดิม มายัง ภันเต ฮือ เค้ารักมิวสิคนะ กินข้าวเที่ยงด้วยกันแล้วมีความสุขมาก ๆ ขอให้เราได้กินหมูสามชั้นทอดเยอะ ๆ นะ เค้าอยากกินอาหารฝีมือมิวสิคมากกก โคตรอร่อยอะ เอาจริงอยากบอกมิวสิคอีกเยอะ ๆ ๆ เลย เดะจะบอกคิดถึงทุกวันนะ มีอีกเรื่องคือเค้าพึ่งรู้ว่าในโทรศัพท์เค้ามีรูปมิวสิคเยอะมากก เพราะมิวสิคถ่ายเอาไว้ ถึงเมมเต็มเค้าก็ไม่ลบหรอก เดะจะซื้อicloud เพิ่ม จริง ๆ ตอนเลื่อนดูรูปคือแต่ละรูปมีความทรงจำเยอะ ๆ มาก ๆ อะ นึกแล้วก็คิดถึง เค้าขอบคุณมิวสิคมากจริง ๆ นะ ไม่รู้ว่าถ้าได้อ่านจะซึ้งไหม แต่เค้าร้องไห้ไปแล้ว congrats นะหมุอุ้ด ขอให้ได้เลี้ยงหมู <br>
+                ขอบคุณที่อยู่ด้วยกันมาตลอดนะ รักเสมอ จากผักกาด วันไหนกลับมาอ่านแล้วคิดถึง อย่าลืมทักหาเค้านะ 
+            </p>
+            <button class="next-btn" onclick="nextPage(3, 4)">Close</button>
+        </div>
+    </div>
+
+    <div id="page4" class="section">
+        <div class="fade-in-text">
+            thank you for everything <br>
+            love you ❤️ <br>
+            I'm always here for you <br>
+            good luck mksmm
+        </div>
+    </div>
+
+    <script>
+        function nextPage(current, next) {
+            document.getElementById('page' + current).classList.remove('active');
+            document.getElementById('page' + next).classList.add('active');
+            
+            if(next === 2) {
+                createHearts();
+            }
+        }
+
+        function playMusic() {
+            var music = document.getElementById("bgMusic");
+            music.play();
+        }
+
+        // ฟังก์ชันสร้างหัวใจโปรยลงมา
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-rain';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.opacity = Math.random();
+                container.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
